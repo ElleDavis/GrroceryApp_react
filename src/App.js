@@ -3,14 +3,15 @@ import './App.css';
 import groceryData from './Data/groceryData';
 import GroceryList from "./Components/GroceryList"
 import Form from "./Components/Form"
+import ShoppingCart from './Components/ShoppingCart';
 
 
 class App extends Component{
   state = {
     groceryData: groceryData,
-    groceryItem:" ",
-    groceryBrand:" ",
-    groceryUnits:" ",
+    groceryItem:"",
+    groceryBrand:"",
+    groceryUnits:"",
     groceryQuantity: 0
   };
 
@@ -37,12 +38,17 @@ class App extends Component{
       productDescription: "",
     });
 }
+addToCart = (product) => {
+  console.log(product);
+  this.setState({itemInShoppingCart: [product, ...this.state.itemInShoppingCart]})
+}
 
   render(){
-    console.log(groceryData)
+    // console.log(groceryData)
   return (
     <div className="App"> 
       <h1>My Grocery List</h1>
+      <ShoppingCart itemInShoppingCart={this.state.itemInShoppingCart}/>
       
       <Form
         handleSubmit={this.handleSubmit}
@@ -52,7 +58,7 @@ class App extends Component{
         groceryUnits={this.state.groceryUnits}
         groceryQuantity={this.state.groceryQuantity}
       />
-
+     
       <GroceryList groceryData={this.state.groceryData}/>   
     </div>
   );
