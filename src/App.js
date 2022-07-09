@@ -9,6 +9,7 @@ import ShoppingCart from './Components/ShoppingCart';
 class App extends Component{
   state = {
     groceryData: groceryData,
+    shoppingCartItems: [],
     groceryItem:"",
     groceryBrand:"",
     groceryUnits:"",
@@ -32,15 +33,16 @@ class App extends Component{
     };
     console.log(newProduct);
     this.setState({
-      productsData: [newProduct, ...this.state.groceryData],
-      productName: "",
-      productPrice: 0,
-      productDescription: "",
+      groceryData: [newProduct, ...this.state.groceryData],
+      groceryItem: "",
+      groceryBrand: "",
+      groceryUnits:"",
+      groceryQuantity:0
     });
 }
 addToCart = (product) => {
   console.log(product);
-  this.setState({itemInShoppingCart: [product, ...this.state.itemInShoppingCart]})
+  this.setState({shoppingCartItems: [product, ...this.state.shoppingCartItems]})
 }
 
   render(){
@@ -48,7 +50,7 @@ addToCart = (product) => {
   return (
     <div className="App"> 
       <h1>My Grocery List</h1>
-      <ShoppingCart itemInShoppingCart={this.state.itemInShoppingCart}/>
+      <ShoppingCart shoppingCartItems={this.state.shoppingCartItems}/>
       
       <Form
         handleSubmit={this.handleSubmit}

@@ -6,9 +6,8 @@ const ShoppingCart = (props) => {
        <div>
             <h3>Cart</h3>
             {
-                props.itemInShoppingCart.map(( item,idx) => <GroceryItem groceryData={item} key={idx}/> )
+                props.shoppingCartItems.map(( item, idx) => <GroceryItem groceryData={item} key={idx}/>)
             }
-             
        </div>
     )
 }

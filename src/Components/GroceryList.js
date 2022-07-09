@@ -7,9 +7,7 @@ const GroceryList = (props) =>{
             <div> 
                 <h1>GroceryList</h1>
                {/* {props.groceryData.map(GroceryData)}  */}
-            
                 {props.groceryData.map((item, idx) => <GroceryItem groceryData={item} key={idx} /> )}
-               
             </div>
     )
 }
