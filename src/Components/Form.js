@@ -1,7 +1,7 @@
 const Form = (props) => {
-    // console.log(props);
+    console.log(props);
     return (
- <form>
+ <form onSubmit={props.handleSubmit}>
 <label htmlFor="groceryItem"> groceryItem</label>
 <input type="text" value={props.groceryItem} id="groceryItem"  onChange={props.handleChange}/> 
 

@@ -1,7 +1,6 @@
 import GroceryItem from "./GroceryItem"
 
 const ShoppingCart = (props) => {
-
     return (
        <div>
             <h3>Cart</h3>

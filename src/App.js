@@ -1,12 +1,12 @@
-import { Component } from 'react';
 import './App.css';
 import groceryData from './Data/groceryData';
+import { Component } from 'react';
 import GroceryList from "./Components/GroceryList"
 import Form from "./Components/Form"
 import ShoppingCart from './Components/ShoppingCart';
 
 
-class App extends Component{
+class App extends Component {
   state = {
     groceryData: groceryData,
     shoppingCartItems: [],
@@ -25,10 +25,10 @@ class App extends Component{
     event.preventDefault();
     // create a new product object
     const newProduct = {
-      item: "",
-      brand: "",
-      units: "",
-      quantity: 0,
+      item: this.state.groceryItem,
+      brand: this.state.groceryBrand,
+      units: this.state.groceryUnits,
+      quantity:this.state.groceryQuantity,
       isPurchased: true
     };
     console.log(newProduct);
@@ -37,33 +37,33 @@ class App extends Component{
       groceryItem: "",
       groceryBrand: "",
       groceryUnits:"",
-      groceryQuantity:0
+      groceryQuantity:0,
     });
-}
+};
 addToCart = (product) => {
   console.log(product);
   this.setState({shoppingCartItems: [product, ...this.state.shoppingCartItems]})
 }
 
-  render(){
+  render() {
     // console.log(groceryData)
-  return (
-    <div className="App"> 
-      <h1>My Grocery List</h1>
-      <ShoppingCart shoppingCartItems={this.state.shoppingCartItems}/>
+    return (
+      <div className="App"> 
+       <h1>My Grocery List</h1>
+        <ShoppingCart shoppingCartItems={this.state.shoppingCartItems}/>
       
-      <Form
+        <Form
         handleSubmit={this.handleSubmit}
         handleChange={this.handleChange}
         groceryItem={this.state.groceryItem}
         groceryBrand={this.state.groceryBrand}
         groceryUnits={this.state.groceryUnits}
         groceryQuantity={this.state.groceryQuantity}
-      />
+        />
      
-      <GroceryList groceryData={this.state.groceryData}/>   
-    </div>
-  );
+        <GroceryList groceryData={this.state.groceryData} addToCart={this.addToCart}/>   
+      </div>
+    );
   }
 }
 
