@@ -7,7 +7,7 @@ const GroceryList = (props) =>{
             <div> 
                 <h1>GroceryList</h1>
                {/* {props.groceryData.map(GroceryData)}  */}
-                {props.groceryData.map((item, idx) => <GroceryItem groceryData={item} key={idx} /> )}
+                {props.groceryData.map((item, idx) => item.isPurchased && <GroceryItem groceryData={item} key={idx} addToCart={props.addToCart}/> )}
             </div>
     )
 }

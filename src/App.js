@@ -6,6 +6,7 @@ import Form from "./Components/Form"
 import ShoppingCart from './Components/ShoppingCart';
 
 
+
 class App extends Component {
   state = {
     groceryData: groceryData,
@@ -20,7 +21,7 @@ class App extends Component {
   handleChange = (event) => {
     this.setState({ [event.target.id]: event.target.value });
   };
-
+  //taking in the data once the submit button is pressed and adding that data in SetState which update he changes in state, then reset the console to empty
   handleSubmit = (event) => {
     event.preventDefault();
     // create a new product object
@@ -40,9 +41,9 @@ class App extends Component {
       groceryQuantity:0,
     });
 };
-addToCart = (product) => {
-  console.log(product);
-  this.setState({shoppingCartItems: [product, ...this.state.shoppingCartItems]})
+addToCart = (groceryData) => {
+  console.log(groceryData);
+  this.setState({shoppingCartItems: [groceryData, ...this.state.shoppingCartItems]})
 }
 
   render() {
