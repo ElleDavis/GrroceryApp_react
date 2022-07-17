@@ -1,5 +1,10 @@
 body{
 border: solid blue 2px;
+background-image:url("./images/jiangxulei1990-eIzzzwtkBjU-unsplash.jpg") ;
+background-repeat: no-repeat;
+background-size:cover;
+background-position: center center;
+/* color:aliceblue; */
 }
 
 div{
